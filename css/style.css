@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f1ea;
+    color: #222;
+}
+
+header {
+    padding: 60px 40px 30px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.title {
+    font-size: 56px;
+    margin: 20px 0 10px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #777;
+}
+
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px;
+}
+
+.globe-container {
+    width: 600px;
+    height: 600px;
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 120px;
+}
+
+.explore {
+    margin-top: 50px;
+}
+
+.explore h2 {
+    font-size: 32px;
+}
+
+.region {
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+}
