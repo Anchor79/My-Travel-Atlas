@@ -10,9 +10,12 @@
         "city": "郑州市",
         "district": "登封市"
       },
-      "area": "嵩山",
+      "geography": {
+        "region": "嵩山"
+      },
       "type": "山地徒步"
     },
+
     {
       "id": "taihang-shiziling-loop",
       "name": "十字岭环线",
@@ -23,9 +26,12 @@
         "city": "晋城市",
         "district": "陵川县"
       },
-      "area": "南太行",
+      "geography": {
+        "region": "南太行"
+      },
       "type": "环线"
     },
+
     {
       "id": "pianyan-shengtianhu-loop",
       "name": "偏岩古镇-圣天湖环线",
@@ -36,11 +42,14 @@
         "city": "重庆市",
         "district": "北碚区"
       },
-      "area": "偏岩古镇-圣天湖",
+      "geography": {
+        "region": "偏岩古镇-圣天湖"
+      },
       "type": "环线"
     },
+
     {
-      "id": "beibei-baqiao-diecui",
+      "id": "baqiao-diecui",
       "name": "八桥叠翠",
       "location": {
         "continent": "亚洲",
@@ -49,9 +58,12 @@
         "city": "重庆市",
         "district": "北碚区"
       },
-      "area": "八桥叠翠",
+      "geography": {
+        "region": "八桥叠翠"
+      },
       "type": "山地徒步"
     },
+
     {
       "id": "daihu-loop",
       "name": "黛湖环线",
@@ -62,9 +74,12 @@
         "city": "重庆市",
         "district": "北碚区"
       },
-      "area": "缙云山",
+      "geography": {
+        "region": "缙云山"
+      },
       "type": "环线"
     },
+
     {
       "id": "jinyunshan",
       "name": "缙云山",
@@ -75,9 +90,12 @@
         "city": "重庆市",
         "district": "北碚区"
       },
-      "area": "缙云山",
+      "geography": {
+        "region": "缙云山"
+      },
       "type": "山地徒步"
     },
+
     {
       "id": "wushan-loop",
       "name": "巫山环线",
@@ -88,9 +106,12 @@
         "city": "重庆市",
         "district": "巫山县"
       },
-      "area": "巫山",
+      "geography": {
+        "region": "巫山"
+      },
       "type": "环线"
     },
+
     {
       "id": "wulaoshan-loop",
       "name": "五老山环线",
@@ -101,9 +122,12 @@
         "city": "重庆市",
         "district": "北碚区"
       },
-      "area": "五老山",
+      "geography": {
+        "region": "五老山"
+      },
       "type": "环线"
     },
+
     {
       "id": "gelesan-loop",
       "name": "歌乐山环线",
@@ -114,9 +138,12 @@
         "city": "重庆市",
         "district": "沙坪坝区"
       },
-      "area": "歌乐山",
+      "geography": {
+        "region": "歌乐山"
+      },
       "type": "环线"
     },
+
     {
       "id": "gushudao-south",
       "name": "南线",
@@ -127,9 +154,12 @@
         "city": "广元市",
         "district": "剑阁县"
       },
-      "area": "古蜀道",
+      "geography": {
+        "region": "古蜀道"
+      },
       "type": "古道"
     },
+
     {
       "id": "gushudao-west",
       "name": "西线",
@@ -140,9 +170,12 @@
         "city": "广元市",
         "district": "剑阁县"
       },
-      "area": "古蜀道",
+      "geography": {
+        "region": "古蜀道"
+      },
       "type": "古道"
     },
+
     {
       "id": "yubeng-binghu",
       "name": "冰湖",
@@ -153,9 +186,13 @@
         "city": "迪庆藏族自治州",
         "district": "德钦县"
       },
-      "area": "雨崩",
+      "geography": {
+        "region": "梅里雪山",
+        "subregion": "雨崩"
+      },
       "type": "山地徒步"
     },
+
     {
       "id": "yubeng-shenhu",
       "name": "神湖",
@@ -166,9 +203,13 @@
         "city": "迪庆藏族自治州",
         "district": "德钦县"
       },
-      "area": "雨崩",
+      "geography": {
+        "region": "梅里雪山",
+        "subregion": "雨崩"
+      },
       "type": "山地徒步"
     },
+
     {
       "id": "yubeng-shenpu",
       "name": "神瀑",
@@ -179,7 +220,10 @@
         "city": "迪庆藏族自治州",
         "district": "德钦县"
       },
-      "area": "雨崩",
+      "geography": {
+        "region": "梅里雪山",
+        "subregion": "雨崩"
+      },
       "type": "山地徒步"
     }
   ]
