@@ -4,57 +4,386 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f1ea;
-    color: #222;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: #f5f2eb;
+
+    color: #1f1f1f;
 }
 
-header {
-    padding: 60px 40px 30px;
-    text-align: center;
+
+/* =========================
+   HEADER
+========================= */
+
+.site-header {
+
+    height: 90px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 40px;
+
+    border-bottom: 1px solid #d8d4cc;
+
+    background: #f5f2eb;
 }
+
 
 .logo {
-    font-size: 14px;
+
+    font-size: 16px;
+
     letter-spacing: 4px;
-    text-transform: uppercase;
+
+    font-weight: 600;
 }
 
-.title {
-    font-size: 56px;
-    margin: 20px 0 10px;
-}
 
-.subtitle {
-    font-size: 18px;
+.header-subtitle {
+
+    font-size: 13px;
+
     color: #777;
 }
 
-main {
-    max-width: 1200px;
-    margin: auto;
+
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+
+.main-layout {
+
+    min-height: calc(100vh - 150px);
+
+    display: grid;
+
+    grid-template-columns:
+        240px
+        1fr
+        220px;
+}
+
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+
+    padding: 40px 25px;
+
+    border-right: 1px solid #d8d4cc;
+}
+
+
+.sidebar-title {
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: #777;
+
+    margin-bottom: 30px;
+}
+
+
+.continent {
+
+    margin-bottom: 20px;
+}
+
+
+.continent-title {
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    padding: 8px 0;
+}
+
+
+.continent-title span {
+
+    font-size: 10px;
+
+    margin-right: 8px;
+
+    color: #888;
+}
+
+
+.country-list {
+
+    margin-left: 20px;
+
+    margin-top: 5px;
+}
+
+
+.country {
+
+    padding: 7px 0;
+
+    font-size: 14px;
+
+    color: #777;
+
+    cursor: pointer;
+}
+
+
+.country:hover {
+
+    color: #111;
+}
+
+
+
+/* =========================
+   GLOBE
+========================= */
+
+.globe-section {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
     padding: 40px;
 }
 
-.globe-container {
-    width: 600px;
-    height: 600px;
-    margin: 30px auto;
+
+.globe-title {
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: #888;
+
+    margin-bottom: 20px;
+}
+
+
+.globe {
+
+    width: 430px;
+
+    height: 430px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle at 35% 30%,
+            #ffffff,
+            #d9d6cf 55%,
+            #aaa69e
+        );
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
-    font-size: 120px;
+
+    box-shadow:
+
+        0 25px 60px
+        rgba(0,0,0,0.15);
+
+    transition: transform 0.5s;
 }
 
-.explore {
-    margin-top: 50px;
+
+.globe:hover {
+
+    transform: scale(1.02);
 }
 
-.explore h2 {
-    font-size: 32px;
+
+.globe-symbol {
+
+    font-size: 180px;
 }
 
-.region {
-    padding: 20px 0;
-    border-bottom: 1px solid #ccc;
+
+.globe-description {
+
+    text-align: center;
+
+    max-width: 500px;
+
+    margin-top: 30px;
+}
+
+
+.globe-description h1 {
+
+    font-size: 28px;
+
+    font-weight: 500;
+
+    margin-bottom: 10px;
+}
+
+
+.globe-description p {
+
+    line-height: 1.8;
+
+    color: #777;
+
+    font-size: 15px;
+}
+
+
+
+/* =========================
+   RIGHT PANEL
+========================= */
+
+.info-panel {
+
+    border-left: 1px solid #d8d4cc;
+
+    padding: 40px 25px;
+}
+
+
+.info-title {
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: #777;
+
+    margin-bottom: 40px;
+}
+
+
+.stat {
+
+    margin-bottom: 35px;
+}
+
+
+.stat-number {
+
+    font-size: 42px;
+
+    font-weight: 300;
+}
+
+
+.stat-label {
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: #888;
+
+    margin-top: 5px;
+}
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    height: 60px;
+
+    border-top: 1px solid #d8d4cc;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 40px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #999;
+}
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .main-layout {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .sidebar {
+
+        display: none;
+    }
+
+
+    .info-panel {
+
+        display: none;
+    }
+
+
+    .globe {
+
+        width: 300px;
+
+        height: 300px;
+    }
+
+
+    .globe-symbol {
+
+        font-size: 130px;
+    }
+
+
+    .site-header {
+
+        padding: 0 20px;
+    }
+
+
+    .header-subtitle {
+
+        display: none;
+    }
+
 }
