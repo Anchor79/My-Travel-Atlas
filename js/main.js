@@ -4,7 +4,10 @@
 // ==========================================
 
 
+// ==========================================
 // 读取徒步路线数据
+// ==========================================
+
 async function loadTrails() {
 
     try {
@@ -33,25 +36,45 @@ async function loadTrails() {
 
 function buildNavigation(trails) {
 
+    /*
+        目录结构：
 
-    // 按照：
-    // 国家 → 省份 → 区域 → 路线
-    // 建立层级结构
+        国家
+        └── 省份
+            └── 市 / 州
+                └── 区 / 县
+                    └── 徒步区域
+                        └── 徒步路线
+    */
 
     const tree = {};
 
 
     trails.forEach(trail => {
 
-
-        const country = trail.country;
-
-        const province = trail.province;
-
-        const region = trail.region;
+        const location = trail.location || {};
 
 
+        const country =
+            location.country || "未知国家";
+
+        const province =
+            location.province || "未知省份";
+
+        const city =
+            location.city || "未知地区";
+
+        const district =
+            location.district || "未知区县";
+
+        const area =
+            trail.area || "未知徒步区域";
+
+
+        // ==================================
         // 国家
+        // ==================================
+
         if (!tree[country]) {
 
             tree[country] = {};
@@ -59,7 +82,10 @@ function buildNavigation(trails) {
         }
 
 
+        // ==================================
         // 省份
+        // ==================================
+
         if (!tree[country][province]) {
 
             tree[country][province] = {};
@@ -67,16 +93,49 @@ function buildNavigation(trails) {
         }
 
 
-        // 区域
-        if (!tree[country][province][region]) {
+        // ==================================
+        // 城市 / 地级行政区
+        // ==================================
 
-            tree[country][province][region] = [];
+        if (!tree[country][province][city]) {
+
+            tree[country][province][city] = {};
 
         }
 
 
+        // ==================================
+        // 区 / 县
+        // ==================================
+
+        if (!tree[country][province][city][district]) {
+
+            tree[country][province][city][district] = {};
+
+        }
+
+
+        // ==================================
+        // 徒步区域
+        // ==================================
+
+        if (!tree[country][province][city][district][area]) {
+
+            tree[country][province][city][district][area] = [];
+
+        }
+
+
+        // ==================================
         // 徒步路线
-        tree[country][province][region].push(trail);
+        // ==================================
+
+        tree[country]
+            [province]
+            [city]
+            [district]
+            [area]
+            .push(trail);
 
     });
 
@@ -88,21 +147,37 @@ function buildNavigation(trails) {
 
 
 // ==========================================
-// 创建一个可以展开/收起的目录节点
+// 创建一个可以展开 / 收起的目录节点
 // ==========================================
 
-function createFolder(title, children, level = 0) {
+function createFolder(title, level = 0) {
 
 
-    const container = document.createElement("div");
+    const container =
+        document.createElement("div");
 
-    container.className = "nav-folder";
+
+    container.className =
+        "nav-folder";
 
 
+    // 根据层级添加 class
+    container.classList.add(
+        `nav-level-${level}`
+    );
+
+
+    // ==================================
     // 标题
-    const titleElement = document.createElement("div");
+    // ==================================
 
-    titleElement.className = "nav-folder-title";
+    const titleElement =
+        document.createElement("div");
+
+
+    titleElement.className =
+        "nav-folder-title";
+
 
     titleElement.innerHTML = `
         <span class="arrow">▶</span>
@@ -110,47 +185,74 @@ function createFolder(title, children, level = 0) {
     `;
 
 
+    // ==================================
     // 子内容
-    const childrenElement = document.createElement("div");
+    // ==================================
 
-    childrenElement.className = "nav-folder-children";
+    const childrenElement =
+        document.createElement("div");
 
-    childrenElement.style.display = "none";
+
+    childrenElement.className =
+        "nav-folder-children";
 
 
+    childrenElement.style.display =
+        "none";
+
+
+    // ==================================
     // 点击展开 / 收起
-    titleElement.addEventListener("click", () => {
+    // ==================================
+
+    titleElement.addEventListener(
+        "click",
+        () => {
+
+            const isOpen =
+                childrenElement.style.display === "block";
 
 
-        const isOpen =
-            childrenElement.style.display === "block";
+            if (isOpen) {
 
+                childrenElement.style.display =
+                    "none";
 
-        if (isOpen) {
+                titleElement
+                    .querySelector(".arrow")
+                    .textContent = "▶";
 
-            childrenElement.style.display = "none";
+            } else {
 
-            titleElement.querySelector(".arrow").textContent = "▶";
+                childrenElement.style.display =
+                    "block";
 
-        } else {
+                titleElement
+                    .querySelector(".arrow")
+                    .textContent = "▼";
 
-            childrenElement.style.display = "block";
-
-            titleElement.querySelector(".arrow").textContent = "▼";
+            }
 
         }
+    );
 
-    });
+
+    container.appendChild(
+        titleElement
+    );
 
 
-    container.appendChild(titleElement);
-
-    container.appendChild(childrenElement);
+    container.appendChild(
+        childrenElement
+    );
 
 
     return {
+
         container,
+
         childrenElement
+
     };
 
 }
@@ -161,23 +263,41 @@ function createFolder(title, children, level = 0) {
 // 创建路线
 // ==========================================
 
-function createTrail(trail) {
+function createTrail(trail, level = 5) {
 
 
-    const element = document.createElement("div");
+    const element =
+        document.createElement("div");
 
 
-    element.className = "nav-trail";
+    element.className =
+        "nav-trail";
 
 
-    element.textContent = "• " + trail.name;
+    element.classList.add(
+        `nav-level-${level}`
+    );
 
 
-    element.addEventListener("click", () => {
+    element.textContent =
+        "• " + trail.name;
 
-        console.log("打开徒步路线：", trail.id);
 
-    });
+    // ==================================
+    // 点击路线
+    // ==================================
+
+    element.addEventListener(
+        "click",
+        () => {
+
+            console.log(
+                "打开徒步路线：",
+                trail.id
+            );
+
+        }
+    );
 
 
     return element;
@@ -193,19 +313,25 @@ function createTrail(trail) {
 function renderNavigation(trails) {
 
 
-    const sidebar = document.querySelector(".sidebar");
+    const sidebar =
+        document.querySelector(".sidebar");
 
 
     if (!sidebar) {
 
-        console.error("找不到 sidebar");
+        console.error(
+            "找不到 sidebar"
+        );
 
         return;
 
     }
 
 
+    // ==================================
     // 保留 EXPLORE 标题
+    // ==================================
+
     sidebar.innerHTML = `
         <div class="sidebar-title">
             EXPLORE
@@ -213,75 +339,180 @@ function renderNavigation(trails) {
     `;
 
 
+    // ==================================
     // 建立树
-    const tree = buildNavigation(trails);
+    // ==================================
+
+    const tree =
+        buildNavigation(trails);
 
 
-    // 中国
-    Object.keys(tree).forEach(country => {
+    // ==================================
+    // 国家
+    // ==================================
+
+    Object.keys(tree).forEach(
+        country => {
 
 
-        const countryFolder =
-            createFolder(country, null);
+            const countryFolder =
+                createFolder(
+                    country,
+                    0
+                );
 
 
-        sidebar.appendChild(countryFolder.container);
+            sidebar.appendChild(
+                countryFolder.container
+            );
 
 
-        const provinces =
-            tree[country];
+            const provinces =
+                tree[country];
 
 
-        // 省份
-        Object.keys(provinces).forEach(province => {
+            // ==================================
+            // 省份
+            // ==================================
+
+            Object.keys(provinces).forEach(
+                province => {
 
 
-            const provinceFolder =
-                createFolder(province, null);
+                    const provinceFolder =
+                        createFolder(
+                            province,
+                            1
+                        );
 
 
-            countryFolder.childrenElement
-                .appendChild(provinceFolder.container);
+                    countryFolder
+                        .childrenElement
+                        .appendChild(
+                            provinceFolder.container
+                        );
 
 
-            const regions =
-                provinces[province];
+                    const cities =
+                        provinces[province];
 
 
-            // 区域
-            Object.keys(regions).forEach(region => {
+                    // ==================================
+                    // 城市 / 州
+                    // ==================================
+
+                    Object.keys(cities).forEach(
+                        city => {
 
 
-                const regionFolder =
-                    createFolder(region, null);
+                            const cityFolder =
+                                createFolder(
+                                    city,
+                                    2
+                                );
 
 
-                provinceFolder.childrenElement
-                    .appendChild(regionFolder.container);
+                            provinceFolder
+                                .childrenElement
+                                .appendChild(
+                                    cityFolder.container
+                                );
 
 
-                const trailsInRegion =
-                    regions[region];
+                            const districts =
+                                cities[city];
 
 
-                // 徒步路线
-                trailsInRegion.forEach(trail => {
+                            // ==================================
+                            // 区 / 县
+                            // ==================================
+
+                            Object.keys(districts).forEach(
+                                district => {
 
 
-                    const trailElement =
-                        createTrail(trail);
+                                    const districtFolder =
+                                        createFolder(
+                                            district,
+                                            3
+                                        );
 
 
-                    regionFolder.childrenElement
-                        .appendChild(trailElement);
+                                    cityFolder
+                                        .childrenElement
+                                        .appendChild(
+                                            districtFolder.container
+                                        );
 
-                });
 
-            });
+                                    const areas =
+                                        districts[district];
 
-        });
 
-    });
+                                    // ==================================
+                                    // 徒步区域
+                                    // ==================================
+
+                                    Object.keys(areas).forEach(
+                                        area => {
+
+
+                                            const areaFolder =
+                                                createFolder(
+                                                    area,
+                                                    4
+                                                );
+
+
+                                            districtFolder
+                                                .childrenElement
+                                                .appendChild(
+                                                    areaFolder.container
+                                                );
+
+
+                                            const trailsInArea =
+                                                areas[area];
+
+
+                                            // ==================================
+                                            // 徒步路线
+                                            // ==================================
+
+                                            trailsInArea.forEach(
+                                                trail => {
+
+
+                                                    const trailElement =
+                                                        createTrail(
+                                                            trail,
+                                                            5
+                                                        );
+
+
+                                                    areaFolder
+                                                        .childrenElement
+                                                        .appendChild(
+                                                            trailElement
+                                                        );
+
+                                                }
+                                            );
+
+                                        }
+                                    );
+
+                                }
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+        }
+    );
 
 }
 
@@ -298,8 +529,9 @@ async function init() {
         await loadTrails();
 
 
-    renderNavigation(trails);
-
+    renderNavigation(
+        trails
+    );
 
 }
 
