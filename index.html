@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
 
@@ -7,86 +8,232 @@
 
     <title>My Travel Atlas</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f3ee;
-            color: #222;
-        }
-
-        header {
-            padding: 40px;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            color: #666;
-            font-size: 18px;
-        }
-
-        .globe-placeholder {
-            width: 500px;
-            height: 500px;
-            margin: 50px auto;
-            border-radius: 50%;
-            background: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-        }
-
-        .content {
-            max-width: 1000px;
-            margin: auto;
-            padding: 40px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 
 <body>
 
-<header>
-    <h1>My Travel Atlas</h1>
+    <!-- 顶部 -->
+    <header class="site-header">
 
-    <div class="subtitle">
-        一张不断扩展的个人世界地图，记录去过的地方、旅行故事与实用攻略。
-    </div>
-</header>
+        <div class="logo">
+            MY TRAVEL ATLAS
+        </div>
+
+        <div class="header-subtitle">
+            一张不断扩展的个人世界地图
+        </div>
+
+    </header>
 
 
-<div class="globe-placeholder">
-    🌍
-</div>
+    <!-- 主体 -->
+    <main class="main-layout">
 
 
-<div class="content">
+        <!-- 左侧：世界目录 -->
+        <aside class="sidebar">
 
-    <h2>Explore</h2>
+            <div class="sidebar-title">
+                EXPLORE
+            </div>
 
-    <p>
-        从世界开始，探索我去过的地方。
-    </p>
 
-    <h3>🌏 亚洲</h3>
+            <!-- 亚洲 -->
+            <div class="continent">
 
-    <h3>🌍 欧洲</h3>
+                <div class="continent-title">
+                    <span>▼</span>
+                    亚洲
+                </div>
 
-    <h3>🌎 北美洲</h3>
 
-    <h3>🌎 南美洲</h3>
+                <div class="country-list">
 
-    <h3>🌍 非洲</h3>
+                    <div class="country">
+                        中国
+                    </div>
 
-    <h3>🌏 大洋洲</h3>
+                    <div class="country">
+                        日本
+                    </div>
 
-</div>
+                    <div class="country">
+                        韩国
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 欧洲 -->
+            <div class="continent">
+
+                <div class="continent-title">
+                    <span>▶</span>
+                    欧洲
+                </div>
+
+            </div>
+
+
+            <!-- 北美洲 -->
+            <div class="continent">
+
+                <div class="continent-title">
+                    <span>▶</span>
+                    北美洲
+                </div>
+
+            </div>
+
+
+            <!-- 南美洲 -->
+            <div class="continent">
+
+                <div class="continent-title">
+                    <span>▶</span>
+                    南美洲
+                </div>
+
+            </div>
+
+
+            <!-- 非洲 -->
+            <div class="continent">
+
+                <div class="continent-title">
+                    <span>▶</span>
+                    非洲
+                </div>
+
+            </div>
+
+
+            <!-- 大洋洲 -->
+            <div class="continent">
+
+                <div class="continent-title">
+                    <span>▶</span>
+                    大洋洲
+                </div>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- 中央区域 -->
+        <section class="globe-section">
+
+
+            <div class="globe-title">
+                EXPLORE THE WORLD
+            </div>
+
+
+            <!-- 目前只是地球占位符 -->
+            <div class="globe">
+
+                <div class="globe-symbol">
+                    🌍
+                </div>
+
+            </div>
+
+
+            <div class="globe-description">
+
+                <h1>
+                    My Travel Atlas
+                </h1>
+
+                <p>
+                    记录我去过的地方，
+                    旅行故事，以及那些值得分享的攻略。
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- 右侧信息 -->
+        <aside class="info-panel">
+
+
+            <div class="info-title">
+                MY JOURNEY
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    0
+                </div>
+
+                <div class="stat-label">
+                    COUNTRIES
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    0
+                </div>
+
+                <div class="stat-label">
+                    CITIES
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    0
+                </div>
+
+                <div class="stat-label">
+                    TRAVEL NOTES
+                </div>
+
+            </div>
+
+
+        </aside>
+
+
+    </main>
+
+
+
+    <!-- 底部 -->
+    <footer>
+
+        <span>
+            MY TRAVEL ATLAS
+        </span>
+
+        <span>
+            A PERSONAL MAP OF PLACES I'VE BEEN
+        </span>
+
+    </footer>
+
+
+    <script src="js/main.js"></script>
 
 </body>
+
 </html>
