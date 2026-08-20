@@ -14,18 +14,100 @@ async function loadTrails() {
 
     try {
 
-        const response =
-            await fetch("data/trails.json");
+        const { data, error } = await supabaseClient
+            .from("trails")
+            .select("*")
+            .order("id", { ascending: true });
 
-        const data =
-            await response.json();
+        if (error) {
+            throw error;
+        }
 
-        return data.trails || [];
+        console.log("从 Supabase 读取到的路线：", data);
+
+
+        // ==================================================
+        // 把 Supabase 的扁平数据
+        //
+        // continent
+        // country
+        // province
+        // city
+        // district
+        // region
+        //
+        // 转换成原来 main.js 使用的结构
+        // ==================================================
+
+        const trails = (data || []).map(trail => {
+
+            return {
+
+                id: trail.id,
+
+                trail_code: trail.trail_code,
+
+                name: trail.name,
+
+                location: {
+
+                    continent:
+                        trail.continent || "未知洲",
+
+                    country:
+                        trail.country || "未知国家",
+
+                    province:
+                        trail.province || "未知省份",
+
+                    city:
+                        trail.city || "未知地区",
+
+                    district:
+                        trail.district || "未知区县"
+
+                },
+
+                geography: {
+
+                    region:
+                        trail.region || "未分类区域",
+
+                    subregion:
+                        trail.subregion || null
+
+                },
+
+                type:
+                    trail.type,
+
+                date:
+                    trail.date,
+
+                latitude:
+                    trail.latitude,
+
+                longitude:
+                    trail.longitude,
+
+                description:
+                    trail.description,
+
+                cover_url:
+                    trail.cover_url
+
+            };
+
+        });
+
+
+        return trails;
+
 
     } catch (error) {
 
         console.error(
-            "无法读取徒步路线数据：",
+            "无法读取 Supabase 路线数据：",
             error
         );
 
