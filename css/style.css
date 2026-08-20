@@ -146,7 +146,77 @@ body {
     cursor: pointer;
 }
 
+/* =========================
+   动态徒步目录
+========================= */
 
+.nav-folder {
+    margin: 2px 0;
+}
+
+
+.nav-folder-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px 0;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    color: #555;
+
+    user-select: none;
+}
+
+
+.nav-folder-title:hover {
+
+    color: #111;
+}
+
+
+.nav-folder-title .arrow {
+
+    font-size: 9px;
+
+    color: #999;
+
+    width: 10px;
+}
+
+
+.nav-folder-children {
+
+    margin-left: 16px;
+
+    border-left: 1px solid #ddd;
+
+    padding-left: 10px;
+}
+
+
+.nav-trail {
+
+    padding: 7px 0;
+
+    font-size: 13px;
+
+    color: #888;
+
+    cursor: pointer;
+}
+
+
+.nav-trail:hover {
+
+    color: #111;
+}
 .country:hover {
 
     color: #111;
