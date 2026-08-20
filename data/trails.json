@@ -28,9 +28,9 @@
       "type": "环线"
     },
 
-    {
+        {
       "id": "wulaoshan-loop",
-      "name": "五老山环线",
+      "name": "偏岩古镇-圣天湖环线",
       "location": {
         "continent": "亚洲",
         "country": "中国",
@@ -38,7 +38,7 @@
         "city": "重庆市",
         "district": "北碚区"
       },
-      "area": "五老山",
+      "area": "偏岩古镇-圣天湖",
       "type": "环线"
     },
 
@@ -55,6 +55,62 @@
           "type": "山地徒步"
     },
 
+        {
+      "id": "wulaoshan-loop",
+      "name": "黛湖环线",
+      "location": {
+        "continent": "亚洲",
+        "country": "中国",
+        "province": "重庆市",
+        "city": "重庆市",
+        "district": "北碚区"
+      },
+      "area": "缙云山",
+      "type": "环线"
+    },
+
+            {
+      "id": "wulaoshan-loop",
+      "name": "缙云山",
+      "location": {
+        "continent": "亚洲",
+        "country": "中国",
+        "province": "重庆市",
+        "city": "重庆市",
+        "district": "北碚区"
+      },
+      "area": "缙云山",
+      "type": "山地徒步"
+    },
+
+         {
+      "id": "wulaoshan-loop",
+      "name": "巫山环线",
+      "location": {
+        "continent": "亚洲",
+        "country": "中国",
+        "province": "重庆市",
+        "city": "重庆市",
+        "district": "巫山县"
+      },
+      "area": "巫山",
+      "type": "环线"
+    },
+    
+  {
+      "id": "wulaoshan-loop",
+      "name": "五老山环线",
+      "location": {
+        "continent": "亚洲",
+        "country": "中国",
+        "province": "重庆市",
+        "city": "重庆市",
+        "district": "北碚区"
+      },
+      "area": "五老山",
+      "type": "环线"
+    },
+    
     {
       "id": "gelesan-loop",
       "name": "歌乐山环线",
