@@ -1,159 +1,70 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-    background: #f5f2eb;
-
-    color: #1f1f1f;
-}
+/* ==========================================
+   双目录系统
+   ========================================== */
 
 
-/* =========================
-   HEADER
-========================= */
+/* ------------------------------------------
+   目录切换按钮
+   ------------------------------------------ */
 
-.site-header {
-
-    height: 90px;
-
+.navigation-switcher {
     display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 0 40px;
-
-    border-bottom: 1px solid #d8d4cc;
-
-    background: #f5f2eb;
+    gap: 8px;
+    margin: 16px 0 18px 0;
 }
 
 
-.logo {
+.navigation-switch {
+    border: none;
+    background: transparent;
 
-    font-size: 16px;
+    padding: 7px 10px;
 
-    letter-spacing: 4px;
+    font-size: 12px;
+
+    cursor: pointer;
+
+    color: #888;
+
+    border-radius: 6px;
+
+    transition: all 0.2s ease;
+}
+
+
+.navigation-switch:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+
+.navigation-switch.active {
+    color: #222;
+
+    background: rgba(0, 0, 0, 0.08);
 
     font-weight: 600;
 }
 
 
-.header-subtitle {
+/* ------------------------------------------
+   目录层级
+   ------------------------------------------ */
 
-    font-size: 13px;
-
-    color: #777;
+.navigation-container {
+    width: 100%;
 }
 
 
-
-/* =========================
-   MAIN LAYOUT
-========================= */
-
-.main-layout {
-
-    min-height: calc(100vh - 150px);
-
-    display: grid;
-
-    grid-template-columns:
-        240px
-        1fr
-        220px;
-}
-
-
-
-/* =========================
-   SIDEBAR
-========================= */
-
-.sidebar {
-
-    padding: 40px 25px;
-
-    border-right: 1px solid #d8d4cc;
-}
-
-
-.sidebar-title {
-
-    font-size: 12px;
-
-    letter-spacing: 3px;
-
-    color: #777;
-
-    margin-bottom: 30px;
-}
-
-
-.continent {
-
-    margin-bottom: 20px;
-}
-
-
-.continent-title {
-
-    font-size: 15px;
-
-    cursor: pointer;
-
-    padding: 8px 0;
-}
-
-
-.continent-title span {
-
-    font-size: 10px;
-
-    margin-right: 8px;
-
-    color: #888;
-}
-
-
-.country-list {
-
-    margin-left: 20px;
-
-    margin-top: 5px;
-}
-
-
-.country {
-
-    padding: 7px 0;
-
-    font-size: 14px;
-
-    color: #777;
-
-    cursor: pointer;
-}
-
-/* =========================
-   动态徒步目录
-========================= */
+/* 所有目录节点 */
 
 .nav-folder {
-    margin: 2px 0;
+    width: 100%;
 }
 
+
+/* ------------------------------------------
+   目录标题
+   ------------------------------------------ */
 
 .nav-folder-title {
 
@@ -161,299 +72,175 @@ body {
 
     align-items: center;
 
-    gap: 8px;
-
-    padding: 7px 0;
-
-    font-size: 14px;
-
     cursor: pointer;
 
-    color: #555;
-
     user-select: none;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+
+    border-radius: 5px;
 }
 
 
 .nav-folder-title:hover {
-
-    color: #111;
+    background: rgba(0, 0, 0, 0.04);
 }
 
 
+/* 箭头 */
+
 .nav-folder-title .arrow {
+
+    display: inline-block;
+
+    width: 18px;
 
     font-size: 9px;
 
     color: #999;
-
-    width: 10px;
 }
 
 
-.nav-folder-children {
+/* ------------------------------------------
+   不同层级
+   ------------------------------------------ */
 
-    margin-left: 16px;
 
-    border-left: 1px solid #ddd;
+/* 洲 */
 
-    padding-left: 10px;
+.nav-level-0 > .nav-folder-title {
+
+    padding: 8px 8px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: #222;
 }
 
 
-.nav-trail {
+/* 国家 */
 
-    padding: 7px 0;
+.nav-level-1 > .nav-folder-title {
+
+    padding: 7px 8px 7px 18px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #333;
+}
+
+
+/* 省 */
+
+.nav-level-2 > .nav-folder-title {
+
+    padding: 6px 8px 6px 30px;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    color: #444;
+}
+
+
+/* 市 */
+
+.nav-level-3 > .nav-folder-title {
+
+    padding: 5px 8px 5px 42px;
 
     font-size: 13px;
 
-    color: #888;
+    font-weight: 500;
+
+    color: #555;
+}
+
+
+/* 区县 */
+
+.nav-level-4 > .nav-folder-title {
+
+    padding: 5px 8px 5px 54px;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    color: #666;
+}
+
+
+/* ------------------------------------------
+   路线
+   ------------------------------------------ */
+
+.nav-trail {
+
+    padding: 5px 8px 5px 70px;
+
+    font-size: 12px;
+
+    color: #777;
 
     cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+
+    border-radius: 5px;
 }
 
 
 .nav-trail:hover {
 
-    color: #111;
-}
-.country:hover {
+    background: rgba(0, 0, 0, 0.04);
 
-    color: #111;
+    color: #222;
 }
 
 
+/* ------------------------------------------
+   地理区域目录
+   ------------------------------------------ */
 
-/* =========================
-   GLOBE
-========================= */
+/*
+   地理区域：
 
-.globe-section {
+   亚洲
+      中国
+         重庆市
+            缙云山
+               黛湖环线
+*/
 
-    display: flex;
 
-    flex-direction: column;
+/* 地理区域层级 3 */
 
-    align-items: center;
+.navigation-container
+.nav-level-3 > .nav-folder-title {
 
-    justify-content: center;
-
-    padding: 40px;
+    font-weight: 600;
 }
 
 
-.globe-title {
+/* ------------------------------------------
+   EXPLORE 标题
+   ------------------------------------------ */
 
-    font-size: 12px;
+.sidebar-title {
 
-    letter-spacing: 3px;
+    font-weight: 700;
 
-    color: #888;
+    letter-spacing: 0.08em;
 
-    margin-bottom: 20px;
-}
-
-
-.globe {
-
-    width: 430px;
-
-    height: 430px;
-
-    border-radius: 50%;
-
-    background:
-
-        radial-gradient(
-            circle at 35% 30%,
-            #ffffff,
-            #d9d6cf 55%,
-            #aaa69e
-        );
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    box-shadow:
-
-        0 25px 60px
-        rgba(0,0,0,0.15);
-
-    transition: transform 0.5s;
-}
-
-
-.globe:hover {
-
-    transform: scale(1.02);
-}
-
-
-.globe-symbol {
-
-    font-size: 180px;
-}
-
-
-.globe-description {
-
-    text-align: center;
-
-    max-width: 500px;
-
-    margin-top: 30px;
-}
-
-
-.globe-description h1 {
-
-    font-size: 28px;
-
-    font-weight: 500;
-
-    margin-bottom: 10px;
-}
-
-
-.globe-description p {
-
-    line-height: 1.8;
-
-    color: #777;
-
-    font-size: 15px;
-}
-
-
-
-/* =========================
-   RIGHT PANEL
-========================= */
-
-.info-panel {
-
-    border-left: 1px solid #d8d4cc;
-
-    padding: 40px 25px;
-}
-
-
-.info-title {
-
-    font-size: 12px;
-
-    letter-spacing: 3px;
-
-    color: #777;
-
-    margin-bottom: 40px;
-}
-
-
-.stat {
-
-    margin-bottom: 35px;
-}
-
-
-.stat-number {
-
-    font-size: 42px;
-
-    font-weight: 300;
-}
-
-
-.stat-label {
-
-    font-size: 11px;
-
-    letter-spacing: 2px;
-
-    color: #888;
-
-    margin-top: 5px;
-}
-
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-
-    height: 60px;
-
-    border-top: 1px solid #d8d4cc;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 0 40px;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-
-    color: #999;
-}
-
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 900px) {
-
-    .main-layout {
-
-        grid-template-columns: 1fr;
-    }
-
-
-    .sidebar {
-
-        display: none;
-    }
-
-
-    .info-panel {
-
-        display: none;
-    }
-
-
-    .globe {
-
-        width: 300px;
-
-        height: 300px;
-    }
-
-
-    .globe-symbol {
-
-        font-size: 130px;
-    }
-
-
-    .site-header {
-
-        padding: 0 20px;
-    }
-
-
-    .header-subtitle {
-
-        display: none;
-    }
-
+    margin-bottom: 8px;
 }
