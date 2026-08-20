@@ -1,0 +1,84 @@
+{
+  "trails": [
+    {
+      "id": "songshan-maodao",
+      "name": "猫道",
+      "country": "中国",
+      "province": "河南",
+      "region": "嵩山",
+      "type": "山地徒步"
+    },
+    {
+      "id": "taihang-shiziling-loop",
+      "name": "十字岭环线",
+      "country": "中国",
+      "province": "山西",
+      "region": "南太行",
+      "type": "环线"
+    },
+    {
+      "id": "wulaoshan-loop",
+      "name": "五老山环线",
+      "country": "中国",
+      "province": "重庆",
+      "region": "五老山",
+      "type": "环线"
+    },
+    {
+      "id": "beibei-baqiao-diecui",
+      "name": "八桥叠翠",
+      "country": "中国",
+      "province": "重庆",
+      "region": "北碚",
+      "type": "山地徒步"
+    },
+    {
+      "id": "gelesan-loop",
+      "name": "歌乐山环线",
+      "country": "中国",
+      "province": "重庆",
+      "region": "歌乐山",
+      "type": "环线"
+    },
+    {
+      "id": "gushudao-south",
+      "name": "古蜀道南线",
+      "country": "中国",
+      "province": "四川",
+      "region": "古蜀道",
+      "type": "古道"
+    },
+    {
+      "id": "gushudao-west",
+      "name": "古蜀道西线",
+      "country": "中国",
+      "province": "四川",
+      "region": "古蜀道",
+      "type": "古道"
+    },
+    {
+      "id": "yubeng-binghu",
+      "name": "冰湖",
+      "country": "中国",
+      "province": "云南",
+      "region": "雨崩",
+      "type": "山地徒步"
+    },
+    {
+      "id": "yubeng-shenhu",
+      "name": "神湖",
+      "country": "中国",
+      "province": "云南",
+      "region": "雨崩",
+      "type": "山地徒步"
+    },
+    {
+      "id": "yubeng-shenpu",
+      "name": "神瀑",
+      "country": "中国",
+      "province": "云南",
+      "region": "雨崩",
+      "type": "山地徒步"
+    }
+  ]
+}
